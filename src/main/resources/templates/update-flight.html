@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ubah Data Penerbangan</title>
+</head>
+<body>
+    <h1>Hello!</h1>
+    <h3>Flight Number: [[${flight.flightNumber}]]</h3>
+    <form th:action="@{/flight/update/{id}(id=${flight.id})}" th:object="${flight}" method="POST">
+    	<input type="hidden" th:value="${flight.flightNumber}" name="flightNumber" />	
+        <label>Origin:</label>
+        <input type="text" name="origin" th:value="${flight.origin}" />
+        <br>
+        <label>Destination:</label>
+        <input type="text" name="destination" th:value="${flight.destination}" />
+        <br>
+        <label>Time:</label>
+        <input type="date" name="time" th:value="${flight.time}" />
+        <br><br>
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>
